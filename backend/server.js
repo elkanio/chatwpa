@@ -21,9 +21,8 @@ app.get('/fe', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
+mongoose.connect(process.env.MONGODB_URI,{ useNewUrlParser: true });
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGODB_URI || `mongodb+srv://elkanios:robotka@cluster0-wcjwo.mongodb.net/DBchat`,{ useUnifiedTopology: true, useNewUrlParser: true });
-
 
 var clients = {};
 
